@@ -65,13 +65,11 @@ Displays student details dynamically without page reload.
 Allows modification of existing student records.
 
 
-## Developed by Ashmit Naik
+# Developed by Ashmit Naik
 
 ---
 
 ## 📌 Future Improvements
-
-- Delete Student Feature
 - Search Functionality
 - Bootstrap UI
 - Authentication System
