@@ -23,3 +23,22 @@ function validateForm() {
 
     return true; //else all conditions are valid
 }
+
+function addAddress(){
+
+    let container = document.getElementById("addressContainer");
+
+    let input = document.createElement("input");
+    input.type = "text";
+
+    input.name = "address[]";
+
+    input.placeholder = "Enter address";
+
+    input.style.marginTop = "10px";
+
+    container.appendChild(input);
+
+
+
+}

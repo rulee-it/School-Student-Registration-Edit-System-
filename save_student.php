@@ -11,7 +11,7 @@ $birthdate = $_POST['birthdate'];
 $place_of_birth = $_POST['place_of_birth'];
 $homephone = $_POST['homephone'];
 $cellphone = $_POST['cellphone'];
-$address = $_POST['address'];
+$address = implode("|", $_POST['address']);
 $religion = $_POST['religion'];
 
 $query = "INSERT INTO students

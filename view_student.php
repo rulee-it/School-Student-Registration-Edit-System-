@@ -9,6 +9,15 @@ $result = mysqli_query($conn, $query);
 
 $row = mysqli_fetch_assoc($result);
 
+$addresses = explode(',', $row['address']);
+//echo "<h3>Addresses</h3>";
+
+foreach($addresses as $address){
+    echo trim($address); 
+    echo "<br>";
+
+}
+
 ?>
 
 <h2>Student Details</h2>

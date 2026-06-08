@@ -67,6 +67,32 @@ $result = mysqli_query($conn, $query);
             border-radius: 5px;
         }
 
+        .address-row{
+            display:flex;
+            align-items: center;
+            gap:10px;
+            margin-bottom:10px;
+            cursor:move;
+        }
+
+        .dragging{
+            opacity:0.5;
+        }
+
+        .address-row input{
+            flex:1;
+            padding:10px;
+            border:1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .address-row button{
+            padding: 8px 12px;
+            border:none;
+            border-radius: 5px;
+            cursor:pointer;
+        }
+
     </style>
 
 </head>
@@ -124,7 +150,19 @@ $result = mysqli_query($conn, $query);
                 <?php echo $row['cellphone']; ?>
             </td>
             <td>
-                <?php echo $row['address']; ?>
+                <?php 
+                $addresses = explode(',', $row['address']);
+                $primaryAddress= trim($addresses[0]);
+                $extraAddresses = count($addresses) - 1;
+
+                echo $primaryAddress;
+
+                if($extraAddresses > 0){
+                    echo " +" . $extraAddresses;
+                }
+
+                ?>
+
             </td>
             <td>
                 <?php echo $row['religion']; ?>
@@ -141,6 +179,14 @@ $result = mysqli_query($conn, $query);
                     <button type = "button">
                         Edit
                     </button>
+                </a>
+
+                <a href="delete_student.php?id=<?php echo $row['id']; ?>" 
+                    onclick="return confirm('Are you sure you want to delete this student?');">
+                    <button style="background:red;color:white;">
+                        Delete
+                    </button>
+
                 </a>
             </td>
         </tr>

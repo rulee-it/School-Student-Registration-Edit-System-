@@ -83,7 +83,20 @@
 
             <div class = "form-group">
                 <label>Address</label>
-                <textarea name = "address"></textarea>
+                
+                <div id = "addressContainer">
+                        <input type = "text"
+                                name = "address[]"    
+                                placeholder = "Enter Address">
+                </div>
+
+                <br>
+
+                <button type = "button"
+                        onclick = "addAddress()">
+                        +
+                </button>
+                
             </div>
 
 

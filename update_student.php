@@ -14,13 +14,18 @@ $birthdate = $_POST['birthdate'];
 
 $cellphone = $_POST['cellphone'];
 
-$query = "UPDATE students SET first_name = '$first_name', last_name = '$last_name', age = '$age', birthdate = '$birthdate', cellphone = '$cellphone' WHERE id = '$id'";
+$address = implode(',', $_POST['address']);
+
+
+$query = "UPDATE students SET first_name = '$first_name', last_name = '$last_name', age = '$age', birthdate = '$birthdate', cellphone = '$cellphone', address = '$address' WHERE id = '$id'";
 
 if(mysqli_query($conn, $query)){
-    echo "student updated successfully";
+    echo "student updated successfully<br>";
+
+    echo mysqli_affected_rows($conn)."row updated";
 
 }else{
-    echo "error:" . mysqli_error($conn);
+    echo mysqli_error($conn);
 }
 
 ?>
